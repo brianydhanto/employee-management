@@ -1,0 +1,169 @@
+@use "ngx-toastr/toastr";
+@use '@angular/material' as mat;
+
+* {
+  font-family: "Ubuntu", sans-serif;
+}
+
+html {
+  color-scheme: light dark;
+  @include mat.theme((
+    color: mat.$blue-palette,
+    typography: Roboto,
+    density: 0
+  ));
+  font-size: 16px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.self-center {
+  align-self: center;
+}
+
+.margin-form {
+  margin: 1.5rem 0;
+}
+
+.input-underline {
+  border: none;
+  border-bottom: 1px solid #aaaaaa7e;
+  background: transparent;
+  padding: 8px 4px;
+  font-size: 16px;
+  width: 100%;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.input-underline::placeholder {
+  color: #aaa;
+}
+
+.input-underline:focus {
+  border-bottom: 2px solid #1a5289; 
+}
+
+.btn-primary {
+  background-image: linear-gradient(to right, #3a7bd5 0%, #3a6073  51%, #3a7bd5  100%)
+}
+
+.btn-cancel {
+  background-image: linear-gradient(to right, #ffb347 0%, #ffcc33  51%, #ffb347  100%)
+}
+
+.btn-delete {
+  background-image: linear-gradient(to right, #CB356B 0%, #BD3F32  51%, #CB356B  100%)
+}
+
+.btn-edit {
+  background-image: linear-gradient(to right, #F2994A 0%, #F2C94C  51%, #F2994A  100%)
+}
+
+.btn-gradient {
+  cursor: pointer;
+  padding: 10px 40px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;            
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+  display: block;
+  border: none;
+  width: 100%;
+}
+
+.btn-gradient:hover {
+  background-position: right center; 
+  text-decoration: none;
+}
+
+.btn-disabled {
+  color: rgba(255, 255, 255, 0.505);            
+  background-color: #aaa;
+  cursor: default;
+}
+
+.error-msg {
+  color: red;
+  font-size: 12px;
+}
+
+.ball {
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  position: absolute;
+  animation: float 6s ease-in-out infinite;
+  filter: blur(200px);
+}
+
+.yellow {
+  background: #feb600;
+  left: 0%;
+  animation-delay: 0s;
+}
+
+.blue {
+  background: #1a5289;
+  right: 0%;
+  animation-delay: 3s;
+}
+
+@keyframes float {
+  0%   { transform: translateY(0) translateX(0); }
+  50%  { transform: translateY(-80px) translateX(30px); }
+  100% { transform: translateY(0) translateX(0); }
+}
+
+.bg-container {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #ffffff;
+  overflow: hidden;
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.sub-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.controls label {
+  font-weight: bold;
+}
+
+select {
+  padding: 8px 12px;
+  border-radius: 6px;
+  background-color: #ffffff;
+  cursor: pointer;
+}
+
+.btn-groups {
+  display: flex;
+  justify-content: center;
+  gap: 10px
+}
+         
+         

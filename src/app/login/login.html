@@ -1,0 +1,33 @@
+<div class="bg-container">
+  <div class="ball yellow"></div>
+  <div class="ball blue"></div>
+</div>
+
+<div class="sub-content">
+  <app-card class="self-center">
+    <div class="login-title">Login</div>
+    <div class="login-form">
+      <form [formGroup]="loginForm" (ngSubmit)="login()">
+        <div class="margin-form">
+          <input type="text" class="input-underline" placeholder="Username" formControlName="username">
+          @if(loginForm.get('username')?.touched && loginForm.get('username')?.hasError('required')) {
+            <span class="error-msg">Username required</span>
+          }
+        </div>
+        <div class="margin-form">
+          <input type="password" class="input-underline" placeholder="Password" formControlName="password">
+          @if(loginForm.get('password')?.touched && loginForm.get('password')?.hasError('required')) {
+            <span class="error-msg">Password required</span>
+          }
+        </div>
+        <button class="btn-gradient" type="submit" [disabled]="loginForm.invalid" 
+                [ngClass]="{
+                  'btn-primary': !loginForm.invalid,
+                  'btn-disabled': loginForm.invalid
+                }">
+          LOGIN
+        </button>
+      </form>
+    </div>
+  </app-card>
+</div>

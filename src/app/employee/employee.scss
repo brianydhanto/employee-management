@@ -1,0 +1,8 @@
+::ng-deep app-card .card {
+  width: 1200px;
+  min-height: 70vh;
+  background: rgb(255, 255, 255) !important;
+  box-shadow: none;
+  padding: 2rem;
+  animation: expandDown 0.8s ease forwards;
+}

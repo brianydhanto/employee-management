@@ -1,0 +1,16 @@
+.form {
+  margin: 1.5rem 0;
+}
+
+.form-container {
+  width: 100%;
+  max-height: 450px;
+  overflow-x: hidden;
+}
+
+.btn-groups-add {
+  display: flex;
+  justify-content: end;
+  margin-top: 1.5rem;
+  gap: 10px
+}

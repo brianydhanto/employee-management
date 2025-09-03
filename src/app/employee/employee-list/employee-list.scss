@@ -1,0 +1,99 @@
+
+@keyframes expandDown {
+  from {
+    max-height: 0;
+    opacity: 0;
+  }
+  to {
+    max-height: 100vh; 
+    opacity: 1;
+  }
+}
+
+.employee-table-container {
+  max-height: 500px; 
+  overflow-y: auto;
+}
+
+.employee-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem 0;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  padding: 0.8rem;
+  text-align: center;
+}
+
+table th:first-child {
+  border-radius: 5px 0 0 0;
+}
+table th:last-child {
+  border-radius: 0 5px 0 0;
+}
+table tr:last-child td:first-child {
+  border-radius: 0 0 0 5px;
+}
+table tr:last-child td:last-child {
+  border-radius: 0 0 5px 0;
+}
+
+table td {
+  border-bottom: solid 1px #aaaaaa7e;
+  color: gray;
+}
+
+thead th {
+  position: sticky;
+  top: 0;
+  background: #63829e;
+  color: white;
+  z-index: 2;
+}
+
+.pagination {
+  display: flex;
+  justify-content: end;
+  margin: 2rem 0 0 0;
+}
+
+.pagination button {
+  margin: 0 4px;
+  border-radius: 6px;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  background: white;
+  cursor: pointer;
+}
+
+.pagination button.active {
+  background: #1a5289;
+  color: white;
+  font-weight: bold;
+}
+
+.sort {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.logout-container {
+  display: flex;
+  justify-content: end;
+}
+
+.logout {
+  color: rgb(203, 96, 96);
+  font-weight: 500;
+  cursor: pointer;
+}
+

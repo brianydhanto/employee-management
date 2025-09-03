@@ -1,0 +1,95 @@
+<div class="form-container">
+  <form [formGroup]="employeeForm">
+    <div class="form">
+      <label for="username">Username</label><br>
+      <input class="input-underline" type="text" formControlName="username" placeholder="Input Username">
+      @if(employeeForm.get('username')?.touched && employeeForm.get('username')?.hasError('required')) {
+        <span class="error-msg">Username Required</span>
+      }
+    </div>
+    <div class="form">
+      <label for="firstName">First Name</label><br>
+      <input class="input-underline" type="text" formControlName="firstName" placeholder="Input First Name">
+      @if(employeeForm.get('firstName')?.touched && employeeForm.get('firstName')?.hasError('required')) {
+        <span class="error-msg">First Name Required</span>
+      }
+    </div>
+    <div class="form">
+      <label for="lastName">Last Name</label><br>
+      <input class="input-underline" type="text" formControlName="lastName" placeholder="Input Last Name">
+      @if(employeeForm.get('lastName')?.touched && employeeForm.get('lastName')?.hasError('required')) {
+        <span class="error-msg">Last Name Required</span>
+      }
+    </div>
+    <div class="form">
+      <label for="email">Email</label><br>
+      <input class="input-underline" type="email" formControlName="email" placeholder="Input Email">
+      @if(employeeForm.get('email')?.touched && employeeForm.get('email')?.hasError('required')) {
+        <span class="error-msg">Email Required</span>
+      }
+      @if(employeeForm.get('email')?.touched && employeeForm.get('email')?.hasError('email')) {
+        <span class="error-msg">Wrong format email</span>
+      }
+    </div>
+    <div class="form">
+      <label for="birthDate">Birth of Date</label><br>
+      <input [matDatepicker]="picker" class="input-underline" (click)="picker.open()" [max]="today" type="text" formControlName="birthDate" placeholder="Input Birth of Date">
+      <mat-datepicker #picker></mat-datepicker>
+      @if(employeeForm.get('birthDate')?.touched && employeeForm.get('birthDate')?.hasError('required')) {
+        <span class="error-msg">Birth of Date Required</span>
+      }
+    </div>
+    <div class="form">
+      <label for="basicSalary">Basic Salary</label><br>
+      <input class="input-underline" type="text" formControlName="basicSalary" placeholder="Input Basic Salary" (keypress)="($event.charCode >= 48 && $event.charCode < 58)">
+      @if(employeeForm.get('basicSalary')?.touched && employeeForm.get('basicSalary')?.hasError('required')) {
+        <span class="error-msg">Basic Salary Required</span>
+      }
+    </div>
+    <div class="form">
+      <label for="Status">Status</label><br>
+      <div class="controls">
+        <select id="perPage" formControlName="status">
+          <option [value]="''">Select Status</option>
+          @for (item of statusList; track $index) {
+            <option [value]="item">{{ item }}</option>
+          }
+        </select>
+        @if(employeeForm.get('status')?.touched && employeeForm.get('status')?.hasError('required')) {
+          <span class="error-msg">Status Required</span>
+        }
+      </div>
+    </div>
+    <div class="form">
+      <label for="Group">Group</label><br>
+      <input type="text" class="input-underline" formControlName="group" placeholder="Select Group" [matAutocomplete]="auto">
+      <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+        @for (group of filteredGroups | async; track group) {
+          <mat-option [value]="group">{{ group }}</mat-option>
+        }
+      </mat-autocomplete>
+      @if(employeeForm.get('group')?.touched && employeeForm.get('group')?.hasError('required')) {
+        <span class="error-msg">Group Required</span>
+      }
+    </div>
+    <div class="form">
+      <label for="description">Description</label><br>
+      <input class="input-underline" type="text" formControlName="description" placeholder="Input Description">
+      @if(employeeForm.get('description')?.touched && employeeForm.get('description')?.hasError('required')) {
+        <span class="error-msg">Description Required</span>
+      }
+    </div>
+  </form>
+</div>
+<div class="btn-groups-add">
+  <div style="width: 15%;">
+    <button (click)="onCancel()" class="btn-gradient btn-cancel">CANCEL</button>
+  </div>
+  <div style="width: 15%;">
+    <button (click)="onSubmit()" class="btn-gradient" [disabled]="employeeForm.invalid"
+    [ngClass]="{
+      'btn-primary': !employeeForm.invalid,
+      'btn-disabled': employeeForm.invalid
+    }">SAVE</button>
+  </div>
+</div>
