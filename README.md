@@ -2,6 +2,13 @@
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.2.0.
 
+## Requirement
+```bash
+Angular CLI: 20.2.0
+Node: 22.17.1
+Package Manager: npm 11.5.2
+```
+
 ## Dummy Login User
 
 ```bash
