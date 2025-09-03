@@ -33,7 +33,7 @@
     </div>
     <div class="form">
       <label for="birthDate">Birth of Date</label><br>
-      <input [matDatepicker]="picker" class="input-underline" (click)="picker.open()" [max]="today" type="text" formControlName="birthDate" placeholder="Input Birth of Date">
+      <input [matDatepicker]="picker" class="input-underline" (click)="picker.open()" [max]="today" type="text" formControlName="birthDate" placeholder="Choose Date">
       <mat-datepicker #picker></mat-datepicker>
       @if(employeeForm.get('birthDate')?.touched && employeeForm.get('birthDate')?.hasError('required')) {
         <span class="error-msg">Birth of Date Required</span>
