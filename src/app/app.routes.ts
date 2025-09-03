@@ -36,5 +36,9 @@ export const routes: Routes = [
         pathMatch: 'full' 
       }
     ]
-  }
+  },
+  {
+    path: '**',
+    loadComponent: () => import('../shared/components/not-found/not-found').then((component) => component.notFoundComponent),
+  },
 ];
