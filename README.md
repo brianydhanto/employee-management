@@ -16,6 +16,16 @@ username: james.wilson
 password: User123
 ```
 
+## First of all
+
+After you clone the project please run 
+
+```bash
+npm install 
+```
+
+before you serve the project
+
 ## Development server
 
 To start a local development server, run:
