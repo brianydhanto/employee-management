@@ -4,8 +4,10 @@ This project was generated using [Angular CLI](https://github.com/angular/angula
 
 ## Dummy Login User
 
+```bash
 username: james.wilson
 password: User123
+```
 
 ## Development server
 
