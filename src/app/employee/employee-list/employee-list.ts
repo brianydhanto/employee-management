@@ -23,7 +23,7 @@ export class EmployeeListComponent implements OnInit {
   search: string = ''
   sort = {
     header: 'name',
-    sortBy: 'asc'
+    sortBy: ''
   }
   constructor(
     private readonly employeeService: EmployeeService,
@@ -36,6 +36,7 @@ export class EmployeeListComponent implements OnInit {
   ngOnInit(): void {
     this.getList()
     this.onGetSearch()
+    this.onSort('name')
   }
 
   onChangePage(page: number): void {
@@ -93,15 +94,15 @@ export class EmployeeListComponent implements OnInit {
 
   onSort(sortBy: string): void {
     this.sort.header = sortBy
-    this.sort.sortBy = this.sort.sortBy === 'desc' ? 'asc' : 'desc'
+    this.sort.sortBy = this.sort.sortBy === 'desc' || !this.sort.sortBy ? 'asc' : 'desc'
 
     this.employees$.value.sort((x: any, y:any) => {
       if (this.sort.header === 'name') {
         const name = x['firstName'] + x['lastName']
         const compare = y['firstName'] + y['lastName']
-        return this.sort.sortBy === 'asc' ? name.localeCompare(compare) : compare.localeCompare(name)
+        return this.sort.sortBy === 'asc' ? name.localeCompare(compare) : compare.localeCompare(name) 
       }
-      return this.sort.sortBy === 'asc' ? x[sortBy].localeCompare(y[sortBy]) : y[sortBy].localeCompare(x[sortBy])
+      return this.sort.sortBy === 'asc' ? x[sortBy].localeCompare(y[sortBy]) : y[sortBy].localeCompare(x[sortBy]) 
     })
   }
 
